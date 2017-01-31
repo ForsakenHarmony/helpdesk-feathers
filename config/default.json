@@ -1,0 +1,17 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "secret": "cfXHZRtVOZSasgk7cu6U75RanNoJbrlfzXayh6f30OiKszcUbUqi/Kf/+Qwm52yZRmDyNJv9s06QZXnrdi1XfQ==",
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "permissions": {
+        "scope": ["profile"]
+      }
+    }
+  },
+  "corsWhitelist": []
+}

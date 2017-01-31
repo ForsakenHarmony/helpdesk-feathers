@@ -1,0 +1,16 @@
+html, body, #appRoot, #appRoot > div {
+  min-height: 100%;
+}
+
+#appRoot > div {
+  display: flex;
+  flex-direction: column;
+
+  > div:nth-child(2) {
+    flex: 1 0 auto;
+  }
+}
+
+// import bulma last
+@import "~font-awesome/scss/font-awesome.scss";
+@import "~bulma";

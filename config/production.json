@@ -1,0 +1,16 @@
+{
+  "host": "helpdesk-feathers-app.feathersjs.com",
+  "port": 80,
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "secret": "FEATHERS_AUTH_SECRET",
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "permissions": {
+        "scope": ["profile"]
+      }
+    }
+  }
+}
