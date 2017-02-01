@@ -33,7 +33,6 @@ node_modules
 # my local rethink executable
 .bin/
 
-lib/
 data/
 public/
 dist/
