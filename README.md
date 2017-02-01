@@ -1,6 +1,6 @@
 # helpdesk-feathers
 
-> 
+[![Travis](https://travis-ci.org/ForsakenHarmony/helpdesk-feathers.svg?branch=master)](https://travis-ci.org/ForsakenHarmony/helpdesk-feathers)
 
 ## About
 
