@@ -11,6 +11,9 @@ const NotFound = () => (
           </h2>
         </div>
       </div>
+      <div className="hero-footer">
+        <a href="/">Back to Homepage</a>
+      </div>
     </section>
   </div>
 );

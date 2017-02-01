@@ -5,12 +5,15 @@
   "auth": {
     "idField": "id",
     "service": "api/users",
+    "path": "auth",
     "secret": "cfXHZRtVOZSasgk7cu6U75RanNoJbrlfzXayh6f30OiKszcUbUqi/Kf/+Qwm52yZRmDyNJv9s06QZXnrdi1XfQ==",
     "google": {
       "clientID": "your google client id",
       "clientSecret": "your google client secret",
       "permissions": {
-        "scope": ["profile"]
+        "scope": [
+          "profile"
+        ]
       }
     }
   },
