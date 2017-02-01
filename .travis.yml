@@ -11,7 +11,7 @@ cache:
     - node_modules
 
 install:
-  - yarn
+  - npm install
 
 script:
   - npm run webpack:prod
