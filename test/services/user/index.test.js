@@ -1,9 +1,9 @@
 'use strict';
 
 const assert = require('assert');
-const app = require('../../../src/server/app');
+const app    = require('../../../src/server/app');
 
-describe('user service', function() {
+describe('user service', () => {
   it('registered the users service', () => {
     assert.ok(app.service('users'));
   });

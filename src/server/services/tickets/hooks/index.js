@@ -1,4 +1,4 @@
-const { hooks, auth, local, permissions } = require('../../../hooks');
+const { auth, permissions } = require('../../../hooks');
 
 exports.before = {
   all   : [

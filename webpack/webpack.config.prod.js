@@ -3,7 +3,7 @@ const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const babelrc = {
-  presets: [
+  presets       : [
     [
       'latest',
       {
@@ -15,35 +15,35 @@ const babelrc = {
     'react',
     'stage-0',
   ],
-  plugins: [
+  plugins       : [
     // ['external-helpers'],
     ['transform-react-jsx', { pragma: 'preact.h' }],
     'transform-decorators-legacy',
     // 'react-hot-loader/babel',
   ],
-  babelrc: false,
+  babelrc       : false,
   cacheDirectory: true,
 };
 
 module.exports = {
   devtool: 'hidden-source-map',
-  entry: [
+  entry  : [
     // 'webpack-hot-middleware/client',
     // 'react-hot-loader/patch',
     './src/client/',
   ],
-  output: {
-    path: path.join(__dirname, '../public'),
-    filename: 'bundle.js',
+  output : {
+    path      : path.join(__dirname, '../public'),
+    filename  : 'bundle.js',
     publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      react: 'preact-compat',
+    alias     : {
+      react      : 'preact-compat',
       'react-dom': 'preact-compat',
     },
-    modules: [
+    modules   : [
       path.join(__dirname, './app/client'),
       'node_modules',
     ],
@@ -63,7 +63,7 @@ module.exports = {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false,
+      debug   : false,
     }),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
@@ -77,37 +77,37 @@ module.exports = {
       comments: false,
     }),
   ],
-  module: {
+  module : {
     rules: [
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
+        test   : /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
+        loader : 'eslint-loader',
       }, {
-        test: /\.jsx?$/,
+        test   : /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: babelrc,
+        loader : 'babel-loader',
+        query  : babelrc,
       }, {
-        test: /\.html$/,
+        test  : /\.html$/,
         loader: 'html-loader',
-        query: {
+        query : {
           interpolate: true,
         },
       }, {
-        test: /\.css$/,
+        test  : /\.css$/,
         loader: 'file-loader',
-        query: {
+        query : {
           name: '[name].[ext]',
         },
       }, {
-        test: /\.scss$/,
+        test   : /\.scss$/,
         loaders: ['file-loader?name=[name].css', 'sass-loader'],
       }, {
-        test: /\.ico|\.png|\.jpg$/,
+        test  : /\.ico|\.png|\.jpg$/,
         loader: 'file-loader',
-        query: {
+        query : {
           name: '[name].[ext]',
         },
       },

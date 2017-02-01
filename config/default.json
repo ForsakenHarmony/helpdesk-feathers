@@ -4,6 +4,7 @@
   "public": "../public/",
   "auth": {
     "idField": "id",
+    "service": "api/users",
     "secret": "cfXHZRtVOZSasgk7cu6U75RanNoJbrlfzXayh6f30OiKszcUbUqi/Kf/+Qwm52yZRmDyNJv9s06QZXnrdi1XfQ==",
     "google": {
       "clientID": "your google client id",

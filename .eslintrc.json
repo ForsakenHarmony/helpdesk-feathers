@@ -22,18 +22,26 @@
   "rules": {
     "no-trailing-spaces": [
       "error",
-      {"skipBlankLines": true}
+      {
+        "skipBlankLines": true
+      }
     ],
     "key-spacing": "off",
     "import/no-extraneous-dependencies": [
       "error",
-      {"devDependencies": ["./*"]}
+      {
+        "devDependencies": [
+          "./*"
+        ]
+      }
     ],
     "no-multi-spaces": "off",
     "quotes": [
       "error",
       "single",
-      {"allowTemplateLiterals": true}
+      {
+        "allowTemplateLiterals": true
+      }
     ],
     "class-methods-use-this": "off",
     "react/jsx-uses-vars": "error",
@@ -42,7 +50,8 @@
     "newline-per-chained-call": "off",
     "quote-props": "warn",
     "comma-dangle": [
-      "error", {
+      "error",
+      {
         "arrays": "always-multiline",
         "objects": "always-multiline",
         "imports": "always-multiline",
@@ -51,13 +60,18 @@
       }
     ],
     "no-param-reassign": [
-      "error", {
+      "error",
+      {
         "props": false
       }
     ],
     "no-underscore-dangle": [
-      "error", {
-        "allow": ["_id", "__REDUX_DEVTOOLS_EXTENSION__"]
+      "error",
+      {
+        "allow": [
+          "_id",
+          "__REDUX_DEVTOOLS_EXTENSION__"
+        ]
       }
     ],
     "import/prefer-default-export": 0

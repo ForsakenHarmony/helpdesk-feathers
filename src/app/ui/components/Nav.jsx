@@ -7,7 +7,7 @@ const Nav = ({ authenticated }) => (
       <div class='nav-right'>
         <a href='/' class='nav-item'>Home</a>
         <a href='/tickets' class='nav-item'>Tickets</a>
-        {!authenticated || <a href='/login' class='nav-item'>Login</a>}
+        {authenticated === 0 && <a href='/login' class='nav-item'>Login</a>}
       </div>
     </nav>
   </div>

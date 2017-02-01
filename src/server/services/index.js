@@ -5,7 +5,7 @@ const tickets        = require('./tickets');
 module.exports = function services() {
   const app = this;
   
-  app.configure(authentication);
   app.configure(user);
+  app.configure(authentication);
   app.configure(tickets);
 };

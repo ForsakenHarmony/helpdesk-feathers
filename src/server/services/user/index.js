@@ -5,11 +5,11 @@ const hooks = require('./hooks/index');
 
 module.exports = function user() {
   const app = this;
-
+  
   const r = rethink({
     db: 'feathers',
   });
-
+  
   const options = {
     Model   : r,
     name    : 'users',
@@ -19,19 +19,19 @@ module.exports = function user() {
       max    : 4,
     },
   };
-
+  
   const serv = service(options);
-
+  
   // Initialize our service with any options it requires
   app.use('/api/users', serv);
-
+  
   // Get our initialize service to that we can bind hooks
-  const userService = app.service('/api/users');
-
+  const userService = app.service('api/users');
+  
   userService.init().then(() => {
     // Set up our before hooks
     userService.before(hooks.before);
-
+    
     // Set up our after hooks
     userService.after(hooks.after);
   });
