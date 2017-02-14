@@ -6,8 +6,8 @@ module.exports = function logger(app) {
   
   return function loggerMiddleware(error, req, res, next) {
     if (error) {
-      const message = `${error.code ? `(${error.code}) `
-        : ''}Route: ${req.url} - ${error.message}`;
+      const message = `${error.code ? `(${error.code}) ` :
+        ''}Route: ${req.url} - ${error.message}`;
       
       if (error.code === 404) {
         winston.info(message);

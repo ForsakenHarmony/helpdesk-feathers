@@ -18,12 +18,20 @@ const inits = Object.keys(app.services).map((path) => {
   return Promise.resolve();
 });
 
+let server;
+
 Promise.all(inits).then(() => {
-  const server = app.listen(3030);
+  server = app.listen(3030);
   
   server.on('listening', () => {
     log(`Feathers application started on ${app.get('host')}:${port}`);
   });
-}).catch((e) => {
-  log('ERROR', e);
+}).catch((err) => {
+  log('ERROR', err);
+});
+
+process.on('SIGTERM', () => {
+  server.close(() => {
+    process.exit(0);
+  });
 });

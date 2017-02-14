@@ -51,6 +51,7 @@ module.exports = {
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
     // new webpack.NoErrorsPlugin(),
+    // new DashboardPlugin({ port: 3001 }), // wait for webinterface
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
@@ -69,6 +70,11 @@ module.exports = {
         test   : /\.jsx?$/,
         exclude: /node_modules/,
         loader : 'eslint-loader',
+      // }, {
+      //   test   : /\.jsx?$/,
+      //   exclude: /node_modules/,
+      //   loader : 'babel-loader',
+      //   query  : babelrc,
       }, {
         test   : /\.jsx?$/,
         exclude: /node_modules/,

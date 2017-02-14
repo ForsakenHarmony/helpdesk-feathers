@@ -1,8 +1,8 @@
 import { Component } from 'preact';
-import { connect } from 'preact-redux';
+import { connect } from 'react-redux';
 
-import Nav from '../components/Nav.jsx';
-import Footer from '../components/Footer.jsx';
+import Nav from '../components/nav.jsx';
+import Footer from '../components/footer.jsx';
 
 @connect(state => state)
 class App extends Component {

@@ -5,6 +5,6 @@ const app    = require('../../../src/server/app');
 
 describe('user service', () => {
   it('registered the users service', () => {
-    assert.ok(app.service('users'));
+    assert.ok(app.service('api/users'));
   });
 });

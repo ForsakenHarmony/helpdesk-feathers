@@ -25,6 +25,8 @@ This project uses [Feathers](http://feathersjs.com) and [preact](https://github.
 
 Simply run `npm test` and all your tests in the `test/` directory will be run.
 
+(requires `NODE_ENV` to be set to `production`)
+
 ## Changelog
 
 __0.1.1__

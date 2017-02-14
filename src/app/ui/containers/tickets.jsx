@@ -1,7 +1,7 @@
 import { Component } from 'preact';
-import { connect } from 'preact-redux';
+import { connect } from 'react-redux';
 
-import TicketList from '../components/TicketList.jsx';
+import TicketList from '../components/ticket-list.jsx';
 
 @connect((state) => {
   const tickets = state.tickets;
@@ -23,6 +23,15 @@ export default class Tickets extends Component {
                 A list of tickets
               </h2>
             </div>
+          </div>
+          <div class="hero-foot">
+            <nav class="nav has-shadow">
+              <div className="nav-right">
+                <button className="button nav-item">
+                  Create Ticket
+                </button>
+              </div>
+            </nav>
           </div>
         </section>
         <div class="section">

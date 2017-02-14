@@ -1,21 +1,27 @@
-import { Provider } from 'preact-redux';
+import { Provider } from 'react-redux';
 import { Router } from 'preact-router';
 
-import NotFound from './containers/NotFound.jsx';
-import App from './containers/App.jsx';
-import Index from './containers/Index.jsx';
-import Tickets from './containers/Tickets.jsx';
+import NotFound from './containers/not-found.jsx';
+import App from './containers/app.jsx';
+import Index from './containers/index.jsx';
+import Tickets from './containers/tickets.jsx';
 
-const Page = (store, history, url) => (
+const RouterComponent = ({ history, url }) => (
+  <Router history={history} url={url}>
+    <Index path="/"/>
+    <Tickets path="/tickets"/>
+    <NotFound default path="/404"/>
+  </Router>
+);
+
+const Page = ({ store, history, url }) => (
   <Provider store={store}>
     <App>
-      <Router history={history} url={url}>
-        <Index path='/'/>
-        <Tickets path='/tickets'/>
-        <NotFound default path='/404'/>
-      </Router>
+      <RouterComponent history={history} url={url}/>
     </App>
   </Provider>
 );
 
 export default Page;
+
+export { RouterComponent as Router };

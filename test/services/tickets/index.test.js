@@ -5,6 +5,6 @@ const app    = require('../../../src/server/app');
 
 describe('tickets service', () => {
   it('registered the tickets service', () => {
-    assert.ok(app.service('tickets'));
+    assert.ok(app.service('api/tickets'));
   });
 });

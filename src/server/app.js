@@ -28,7 +28,7 @@ app.use(compress())
    .options('*', cors(corsOptions))
    .use(cors(corsOptions))
    .use(favicon(path.join(app.get('public'), 'favicon.ico')))
-   .use('/', serveStatic(app.get('public')))
+   .use('/', serveStatic(app.get('public'))) // TODO: webpack middleware :S
    .use(bodyParser.json())
    .use(bodyParser.urlencoded({ extended: true }))
    .configure(hooks())

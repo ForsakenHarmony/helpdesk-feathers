@@ -1,6 +1,6 @@
 {
   "comment": "this is a custom config, it reflects my own preferences",
-  "extends": "airbnb-base",
+  "extends": ["xo-space/esnext", "xo-react/space"],
   "plugins": [
     "react",
     "jsx-a11y",
@@ -20,38 +20,8 @@
     }
   },
   "rules": {
-    "no-trailing-spaces": [
-      "error",
-      {
-        "skipBlankLines": true
-      }
-    ],
-    "key-spacing": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "./*"
-        ]
-      }
-    ],
-    "no-multi-spaces": "off",
-    "quotes": [
-      "error",
-      "single",
-      {
-        "allowTemplateLiterals": true
-      }
-    ],
-    "class-methods-use-this": "off",
-    "react/jsx-uses-vars": "error",
-    "no-empty-pattern": "off",
-    "no-script-url": "off",
-    "newline-per-chained-call": "off",
-    "quote-props": "warn",
     "comma-dangle": [
-      "error",
-      {
+      "error", {
         "arrays": "always-multiline",
         "objects": "always-multiline",
         "imports": "always-multiline",
@@ -59,22 +29,53 @@
         "functions": "ignore"
       }
     ],
-    "no-param-reassign": [
+    "import/prefer-default-export": "off",
+
+    "no-multi-spaces": "off",
+    "no-trailing-spaces": ["error", {"skipBlankLines": true}],
+    "key-spacing": "off", // should be align: colon
+
+    "no-empty-pattern": "off",
+    "object-curly-spacing": ["error", "always"],
+
+    "func-names": ["error", "as-needed"],
+    "arrow-parens": ["error", "as-needed", {"requireForBlockBody": true}],
+
+    "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": ["error", {"ignore": ["class"]}],
+    "react/prop-types": "off",
+    "react/jsx-uses-vars": "error"
+  },
+  "oldrules": {
+    "no-trailing-spaces": ["error", {"skipBlankLines": true}],
+    "key-spacing": "off",
+    "import/no-extraneous-dependencies": [
       "error",
-      {
-        "props": false
+      {"devDependencies": ["./*"]}
+    ],
+    "no-multi-spaces": "off",
+    "quotes": ["error", "single", {"allowTemplateLiterals": true}],
+    "class-methods-use-this": "off",
+    "react/jsx-uses-vars": "error",
+    "no-empty-pattern": "off",
+    "no-script-url": "off",
+    "newline-per-chained-call": "off",
+    "quote-props": "warn",
+    "comma-dangle": [
+      "error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
       }
     ],
+    "no-param-reassign": ["error", {"props": false}],
     "no-underscore-dangle": [
       "error",
-      {
-        "allow": [
-          "_id",
-          "__REDUX_DEVTOOLS_EXTENSION__"
-        ]
-      }
+      {"allow": ["_id", "__REDUX_DEVTOOLS_EXTENSION__"]}
     ],
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": "off"
   },
   "parser": "babel-eslint",
   "notused": {

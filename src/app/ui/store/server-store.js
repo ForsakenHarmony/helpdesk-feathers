@@ -1,12 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
-import routerMiddleware from 'preact-router-redux/lib/middleware';
 
-import browserHistory from '../../lib/browser-history';
 import rootReducer from '../reducers/root';
 
-const router = routerMiddleware(browserHistory);
-
-let middleware = [router];
+let middleware = [];
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line global-require
   const createLogger = require('redux-logger');
@@ -16,12 +12,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 
-const enhancer = (
-  (process.env.NODE_ENV !== 'production' || undefined) &&
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState, enhancer);
+  return createStoreWithMiddleware(rootReducer, initialState);
 }

@@ -13,17 +13,88 @@
   "contributors": [],
   "bugs": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 6.0.0"
   },
   "scripts": {
-    "test": "npm run eslint && npm run mocha",
-    "eslint:client": "eslint src/client/ src/app/ test/",
-    "eslint": "eslint src/server/",
-    "start": "node src/",
+    "test": "npm run xo && npm run eslint && npm run mocha",
+    "ava": "ava",
+    "xo": "xo",
+    "eslint": "eslint src",
+    "start": "node build/backend.js",
+    "nodemon": "nodemon build/backend.js --watch build/",
+    "nodemon:debug": "nodemon --inspect --debug-brk build/backend.js --watch build/",
     "mocha": "mocha test/ --recursive",
     "webpack:dev": "webpack --progress --colors --config webpack/webpack.config.dev.js",
     "webpack:prod": "webpack --progress --colors --config webpack/webpack.config.prod.js",
-    "webpack:watch": "webpack --progress --colors --config webpack/webpack.config.dev.js --watch"
+    "webpack:watch": "webpack --progress --colors --config webpack/webpack.config.dev.js --watch",
+    "webpack:server": "webpack --progress --colors --config webpack/webpack.config.server.js",
+    "webpack:server:watch": "webpack --progress --colors --config webpack/webpack.config.server.js --watch"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "rules": {
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "ignore"
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "no-multi-spaces": "off",
+      "no-trailing-spaces": [
+        "error",
+        {
+          "skipBlankLines": true
+        }
+      ],
+      "key-spacing": "off",
+      "no-empty-pattern": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "func-names": [
+        "error",
+        "as-needed"
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed",
+        {
+          "requireForBlockBody": true
+        }
+      ],
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": [
+        "error",
+        {
+          "ignore": [
+            "class"
+          ]
+        }
+      ],
+      "react/prop-types": "off",
+      "react/jsx-uses-vars": "error"
+    },
+    "parser": "babel-eslint",
+    "overrides": [
+      {
+        "files": [
+          "test/**/*.js"
+        ],
+        "rules": {
+          "no-undef": 0
+        }
+      }
+    ]
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -58,10 +129,8 @@
     "preact-render-to-string": "^3.3.0",
     "preact-router": "^2.4.0",
     "preact-router-redux": "^4.1.0",
+    "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "redux-devtools": "^3.3.1",
-    "redux-devtools-dock-monitor": "^1.1.1",
-    "redux-devtools-log-monitor": "^1.1.1",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "request": "^2.79.0",
@@ -69,9 +138,11 @@
     "serve-favicon": "^2.3.2",
     "socket.io": "^1.7.2",
     "socket.io-client": "^1.7.2",
+    "source-map-support": "^0.4.11",
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "ava": "^0.18.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
@@ -86,10 +157,14 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-runtime": "^6.20.0",
+    "buble": "^0.15.2",
+    "buble-loader": "^0.4.0",
     "coveralls": "^2.11.15",
     "css-loader": "^0.26.1",
     "eslint": "^3.14.1",
     "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-config-xo-react": "^0.10.0",
+    "eslint-config-xo-space": "^0.15.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
@@ -100,13 +175,15 @@
     "imports-loader": "^0.7.0",
     "mocha": "^3.2.0",
     "node-sass": "^4.4.0",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.1",
     "raw-loader": "^0.5.1",
-    "react-hot-loader": "^3.0.0-beta.6",
     "sass-loader": "^4.1.1",
-    "source-map-support": "^0.4.11",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0",
     "webpack-dev-middleware": "^1.8.4",
-    "webpack-hot-middleware": "^2.13.2"
+    "webpack-hot-middleware": "^2.13.2",
+    "webpack-node-externals": "^1.5.4",
+    "xo": "^0.17.1"
   }
 }

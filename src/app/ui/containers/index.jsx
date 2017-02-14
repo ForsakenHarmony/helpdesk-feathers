@@ -13,7 +13,7 @@ const Index = () => (
       </div>
     </section>
     <div className="section">
-      <a href='/tickets'>Tickets</a>
+      <a href="/tickets">Tickets</a>
     </div>
   </div>
 );

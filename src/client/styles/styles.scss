@@ -11,6 +11,13 @@ html, body, #appRoot, #appRoot > div {
   }
 }
 
+@import "~bulma/sass/utilities/_all";
+
+//$white: $grey-dark;
+//$background: $grey-darker;
+//$body-background: $grey-dark;
+//$text: findColorInvert($text);
+
 // import bulma last
 @import "~font-awesome/scss/font-awesome.scss";
 @import "~bulma";
