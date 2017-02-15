@@ -21,6 +21,7 @@ const render = () => {
     , document.getElementById('appRoot'));
 };
 
-render();
+export default render;
+// render();
 
 // if (module.hot) module.hot.accept('./router.jsx', () => render());

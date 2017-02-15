@@ -91,20 +91,16 @@ module.exports = {
         //   query  : babelrc,
       }, {
         test   : /\.jsx?$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         loader : 'buble-loader',
         query  : {
-          target: { chrome: 48, firefox: 47, safari: 9, edge: 13 },
+          // target: { chrome: 48, firefox: 47, safari: 9, edge: 13 },
           
           transforms: {
-            arrow         : true,
-            modules       : false,
-            dangerousForOf: true,
+            modules: false,
           },
           
           jsx: 'preact.h',
-          
-          namedFunctionExpressions: false,
         },
       }, {
         test  : /\.html$/,
