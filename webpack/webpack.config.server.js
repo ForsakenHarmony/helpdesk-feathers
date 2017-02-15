@@ -2,26 +2,26 @@ const path          = require('path');
 const webpack       = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const babelrc = {
-  presets       : [
-    [
-      'latest',
-      // {
-      //   es2015: {
-      //     modules: false,
-      //   },
-      // },
-    ],
-    'react',
-    'stage-0',
-  ],
-  plugins       : [
-    ['transform-react-jsx', { pragma: 'preact.h' }],
-    'transform-decorators-legacy',
-  ],
-  babelrc       : false,
-  cacheDirectory: true,
-};
+// const babelrc = {
+//   presets       : [
+//     [
+//       'latest',
+//       // {
+//       //   es2015: {
+//       //     modules: false,
+//       //   },
+//       // },
+//     ],
+//     'react',
+//     'stage-0',
+//   ],
+//   plugins       : [
+//     ['transform-react-jsx', { pragma: 'preact.h' }],
+//     'transform-decorators-legacy',
+//   ],
+//   babelrc       : false,
+//   cacheDirectory: true,
+// };
 
 module.exports = {
   devtool  : 'sourcemap',
@@ -47,11 +47,29 @@ module.exports = {
   ],
   module   : {
     rules: [
+      // {
+      //   test   : /\.jsx?$/,
+      //   exclude: /node_modules/,
+      //   loader : 'babel-loader',
+      //   query  : babelrc,
+      // },
       {
         test   : /\.jsx?$/,
         exclude: /node_modules/,
-        loader : 'babel-loader',
-        query  : babelrc,
+        loader : 'buble-loader',
+        query  : {
+          target: { node: 6 },
+          
+          transforms: {
+            arrow         : false,
+            modules       : false,
+            dangerousForOf: true,
+          },
+          
+          jsx: 'preact.h',
+          
+          namedFunctionExpressions: false,
+        },
       },
     ],
   },

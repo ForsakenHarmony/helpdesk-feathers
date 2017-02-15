@@ -31,6 +31,9 @@ node_modules
 .idea/
 
 build/
-data/
-public/
-dist/
+
+public/bundle.js
+public/fonts
+public/index.html
+public/styles.css
+

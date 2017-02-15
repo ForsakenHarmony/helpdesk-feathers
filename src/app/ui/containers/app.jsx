@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Nav from '../components/nav.jsx';
 import Footer from '../components/footer.jsx';
 
-@connect(state => state)
+// @connect(state => state)
 class App extends Component {
   render({ children }, {}) {
     return (
@@ -17,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(state => state)(App);

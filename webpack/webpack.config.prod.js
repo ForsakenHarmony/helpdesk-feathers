@@ -2,28 +2,28 @@ const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const babelrc = {
-  presets       : [
-    [
-      'latest',
-      {
-        es2015: {
-          modules: false,
-        },
-      },
-    ],
-    'react',
-    'stage-0',
-  ],
-  plugins       : [
-    // ['external-helpers'],
-    ['transform-react-jsx', { pragma: 'preact.h' }],
-    'transform-decorators-legacy',
-    // 'react-hot-loader/babel',
-  ],
-  babelrc       : false,
-  cacheDirectory: true,
-};
+// const babelrc = {
+//   presets       : [
+//     [
+//       'latest',
+//       {
+//         es2015: {
+//           modules: false,
+//         },
+//       },
+//     ],
+//     'react',
+//     'stage-0',
+//   ],
+//   plugins       : [
+//     // ['external-helpers'],
+//     ['transform-react-jsx', { pragma: 'preact.h' }],
+//     'transform-decorators-legacy',
+//     // 'react-hot-loader/babel',
+//   ],
+//   babelrc       : false,
+//   cacheDirectory: true,
+// };
 
 module.exports = {
   devtool: 'hidden-source-map',
@@ -84,11 +84,28 @@ module.exports = {
         test   : /\.jsx?$/,
         exclude: /node_modules/,
         loader : 'eslint-loader',
+        // }, {
+        //   test   : /\.jsx?$/,
+        //   exclude: /node_modules/,
+        //   loader : 'babel-loader',
+        //   query  : babelrc,
       }, {
         test   : /\.jsx?$/,
         exclude: /node_modules/,
-        loader : 'babel-loader',
-        query  : babelrc,
+        loader : 'buble-loader',
+        query  : {
+          target: { chrome: 48, firefox: 47, safari: 9, edge: 13 },
+          
+          transforms: {
+            arrow         : true,
+            modules       : false,
+            dangerousForOf: true,
+          },
+          
+          jsx: 'preact.h',
+          
+          namedFunctionExpressions: false,
+        },
       }, {
         test  : /\.html$/,
         loader: 'html-loader',

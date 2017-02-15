@@ -16,7 +16,7 @@
     "node": ">= 6.0.0"
   },
   "scripts": {
-    "test": "npm run xo && npm run eslint && npm run mocha",
+    "test": "npm run xo && npm run mocha",
     "ava": "ava",
     "xo": "xo",
     "eslint": "eslint src",
@@ -181,6 +181,7 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0",
+    "webpack-bundle-analyzer": "^2.3.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2",
     "webpack-node-externals": "^1.5.4",

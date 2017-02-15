@@ -15,7 +15,12 @@ describe('Feathers application tests', () => {
   });
   
   it('starts and shows the index page', (done) => {
-    request('http://localhost:3030', (err, res, body) => {
+    request({
+      url    : 'http://localhost:3030',
+      headers: {
+        Accept: 'text/html',
+      },
+    }, (err, res, body) => {
       assert.ok(body.indexOf('<html>') !== -1);
       done(err);
     });

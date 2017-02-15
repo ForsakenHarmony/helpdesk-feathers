@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 import TicketList from '../components/ticket-list.jsx';
 
-@connect((state) => {
-  const tickets = state.tickets;
-  return {
-    tickets,
-  };
-})
-export default class Tickets extends Component {
+// @connect((state) => {
+//   const tickets = state.tickets;
+//   return {
+//     tickets,
+//   };
+// })
+class Tickets extends Component {
   render({ tickets }, {}) {
     return (
       <div>
@@ -41,3 +41,10 @@ export default class Tickets extends Component {
     );
   }
 }
+
+export default connect((state) => {
+  const tickets = state.tickets;
+  return {
+    tickets,
+  };
+})(Tickets);

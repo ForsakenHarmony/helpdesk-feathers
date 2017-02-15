@@ -4,6 +4,7 @@
 import debug from 'debug';
 
 import './index.html';
+import '../app/feathers';
 
 if (process.env.NODE_ENV !== 'production') {
   require('preact/devtools');
